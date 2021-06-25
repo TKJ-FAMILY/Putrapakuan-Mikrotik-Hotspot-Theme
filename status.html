@@ -1,0 +1,68 @@
+<html>
+<head>
+<link rel="shortcut icon" href="assets/img/yayasan-putrapakuan.png">
+<title>Putra Pakuan Hotspot | STATUS</title>
+$(if refresh-timeout)
+<meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+$(endif)
+<meta charset="utf-8">
+<meta name="theme-color" content="#3e95ff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<link rel="stylesheet" href="assets/css/putrapakuan-v4.css">
+<script language="JavaScript">
+<!--
+$(if advert-pending == 'yes')
+    var popup = '';
+    function focusAdvert() {
+    if (window.focus) popup.focus();
+    }
+    function openAdvert() {
+    popup = open('$(link-advert)', 'hotspot_advert', '');
+    setTimeout("focusAdvert()", 1000);
+    }
+$(endif)
+    function openLogout() {
+    if (window.name != 'hotspot_status') return true;
+        open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+    window.close();
+    return false;
+    }
+//-->
+</script>
+</head>
+<body $(if advert-pending == 'yes')
+    onLoad="openAdvert()"
+$(endif)>
+    <nav>
+            <img src="assets/img/svg/person-fill.svg" alt="">
+            <p>$(username)</p>
+     </nav>
+    <div class="container height">
+        <div class="main"> 
+                <form action="$(link-logout)" name="logout" onSubmit="return openLogout()" style="padding: 0">
+                    <table>
+                        <tr><td>IP address</td><td class="right">$(ip)</td></tr>
+                        <tr><td>Bytes up / down</td><td class="right">$(bytes-in-nice) / $(bytes-out-nice)</td></tr>
+                    $(if session-time-left)
+                        <tr><td>Connected / left</td><td class="right">$(uptime) / $(session-time-left)</td></tr>
+                    $(else)
+                        <tr><td>Connected</td><td class="right">$(uptime)</td></tr>
+                    $(endif)
+                    $(if blocked == 'yes')
+                        <tr><td>Status</td><td class="right"> Connected</td>
+                        </tr>
+                    $(elif refresh-timeout)
+                        <tr><td>Status refresh</td><td class="right">$(refresh-timeout)</td></tr>
+                    $(endif)
+                        </table>
+                    $(if login-by-mac != 'yes')
+                    <input type="submit" value="KELUAR" class="btn">
+                    $(endif)
+                </form>
+        </div>
+    </div>
+</body>
+</html>
