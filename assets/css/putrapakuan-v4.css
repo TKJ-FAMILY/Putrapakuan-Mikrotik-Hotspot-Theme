@@ -30,7 +30,11 @@
 
 	--background-darkblue: linear-gradient(22deg, rgba(50,0,68,1) 0%, rgba(9,15,121,1) 35%, rgba(0,212,255,1) 100%);
 
-	--background-bluesea: linear-gradient(344deg, rgba(0,123,199,1) 24%, rgba(124,195,188,1) 85%);
+	--background-bluesea: linear-gradient(344deg, #007bc7 0%, #7cc3bc 100%);
+
+
+
+
 }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -60,7 +64,7 @@ body {
 	line-height: 1;
 	font-family: OpenSans;
 	background-repeat: no-repeat;
-	background: var(--background-default-blue);
+	background: var(--background-bluesea);
 }
 
 ol, ul {
@@ -257,23 +261,20 @@ form span > input[type=username], input[type=password]{
 	padding:  14px 14px 10px 40px;
 	border-radius: 5px;
 	font-size: 17px;
-	box-shadow:inset 0px 0px 7px #6b6b6b;
 
 }
 form input[type=username]:focus{
-	box-shadow: 0 0 5px 0 rgba(255,255,255,2);
+	box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 	-webkit-transition: .5s;
 	transition: .5s;
-/*	color: #090f79;*/
 }
 form input[type=password]:focus{
-	box-shadow: 0 0 7px 0 rgba(255,255,255,1);
+	box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
 	opacity: 1;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 	-webkit-transition: .5s;
 	transition: .5s;
-	color: #090f79;
 }
 span > img{
 	width: 20px;
