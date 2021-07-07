@@ -3,6 +3,10 @@
 ### Tentang
 Tema hotspot Mikrotik yang digunakan pada perangkat mikrotik milik Sekolah Putra Pakuan yang dibuat oleh team Developer Muda dari TKJ FAMILY
 
+##Version
+- Current Version: 4.4 (Stable)
+- Update Release: 08 July 2021
+
 # Pengaturan
 
 ### Ganti Warna background
@@ -48,7 +52,7 @@ background: var(--background-default-blue);
 
 - https://tkj-family.000webhostapp.com
 - https://github.com/TKJ-FAMILY
-
+- https://tkj-family.github.io
 
 
 ### Special Thanks
