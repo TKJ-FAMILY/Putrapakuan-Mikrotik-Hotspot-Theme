@@ -7,6 +7,7 @@
 	<title>Putra Pakuan Hotspot | MASUK</title>
 	<link rel="stylesheet" href="assets/css/putrapakuan-v4.css">
 	<link rel="stylesheet" href="assets/css/animation.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta http-equiv="expires" content="-1" />
@@ -37,7 +38,7 @@ $(endif)
 		<div class="content-error fadeIn animated" id="myModal">
 			<div class="error fadeInDown animated">
 				<div class="error-tl">
-					<h4>Error</h4>
+					<h4>Kesalahan</h4>
 					<span class="close">&times;</span>
 				</div>
 				<div class="error-tx">
@@ -46,30 +47,36 @@ $(endif)
 			</div>
 		</div>
 		$(endif)
-	<div class="container">
+	<div class="container-login">
 		<div class="content">
 		<div class="quote-box">
 			<div class="quote-content">
 				<h1>Motivasi Hari ini!</h1>
+				<hr width="150px" style="margin: auto;">
 				<p>" Ilmu itu bagaikan binatang buruan, sedangkan pena adalah pengikatnya, maka ikatlah buruanmu dengan tali yang kuat. "</p>
+			</div>
+			<div class="quote-footer">
 				<small><p>~ Imam Syafi’i</p></small>
 			</div>
 		</div>
-		<div class="li"></div>
 		<div class="login-box fadeIn animated">
 			<form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
 			<input type="hidden" name="dst" value="$(link-orig)" />
         	<input type="hidden" name="popup" value="true" />
 				<img src="assets/img/yayasan-putrapakuan.png" class="brand">
 				<span>
-					<img src="assets/img/svg/person-fill.svg" alt="">
-					<input type="username" name="username" placeholder="Username" value="$(username)" autofocus required autocomplete="off">
+					<label for="username">
+						<img src="assets/img/svg/person-fill.svg" alt="Person SVG">
+					</label>
+					<input type="username" name="username" placeholder="Username" value="$(username)" autofocus required autocomplete="off" id="username" tabindex="1">
 				</span>
 			 	<span>
-			 		<img src="assets/img/svg/pass.svg" alt="">
-			 		<input type="password" name="password" placeholder="Password" required>
+			 		<label for="password">
+			 			<img src="assets/img/svg/pass.svg" alt="Lock SVG">
+			 		</label>
+			 		<input type="password" name="password" placeholder="Password" required id="password">
 			 	</span>
-			 	<input type="submit" name="submit" value="Masuk">
+			 	<input type="submit" name="submit" value="Masuk" class="btn btn-primary">
 			</form>
 		</div>
 		</div>
