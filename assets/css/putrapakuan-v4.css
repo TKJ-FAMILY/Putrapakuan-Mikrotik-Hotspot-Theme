@@ -31,40 +31,12 @@
 	--background-darkblue: linear-gradient(22deg, rgba(50,0,68,1) 0%, rgba(9,15,121,1) 35%, rgba(0,212,255,1) 100%);
 
 	--background-bluesea: linear-gradient(344deg, #007bc7 0%, #7cc3bc 100%);
-
-
-
-
-}
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
 }
 body {
 	line-height: 1;
 	font-family: OpenSans;
 	background-repeat: no-repeat;
-	background: var(--background-bluesea);
+	background: var(--background-default-blue);
 }
 
 ol, ul {
@@ -91,7 +63,7 @@ h2{
 h3{
 	font-size: 35px;
 }
-.container{
+.container-login{
 	min-height: 100vh;
 	width: 100%;
 	display: -webkit-box;
@@ -103,6 +75,15 @@ h3{
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
+}
+.container{
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 }
 .content{
 	display: -webkit-box;
@@ -120,13 +101,12 @@ h3{
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
+	padding: 25px 20px;
+	background-color: #fff;
+	border-radius: 10px;
+	overflow: hidden;
+	position: relative;
+	margin: 0 40px;
 }
 .quote-box h1{
 	margin: 15px 0;
@@ -137,6 +117,7 @@ h3{
 .quote-box p{
 	line-height: 1.7;
 	margin: 25px 0;
+	font-size: 23px;
 }
 .quote-box small{
 	font-style: italic;
@@ -148,21 +129,19 @@ small > p{
 	font-weight: bold;
 }
 .quote-content{
-	padding: 25px 20px;
-	background-color: #fff;
-	border-radius: 10px;
+	position: relative;
+	border: 0;
 }
-.li{
-	display: block;
-	margin: auto;
-	height: 330px;
-	background-color: #fff;
-	margin: 0 20px;
-	padding: 0 .5px;
-	-webkit-transform: translate(20px, 70px);
-	        transform: translate(20px, 70px);
-	opacity: .5;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+.quote-footer{
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+	width: 100%;
+}
+.quote-footer p{
+	margin: 0;
+	color: #333333;
+	font-size: 14px;
 }
 /*
 ===============
@@ -180,17 +159,20 @@ nav{
 	    -ms-flex-align: center;
 	    	align-items: center;
 	box-sizing: border-box;
+	position: sticky;
+	top: 0;
 }
 nav img{
 	background-color: #DDDDDD;
 	padding: 7px;
 	border-radius: 50%;
-	width: 25px;
+	width: 38px;
 }
 nav p{
 	color: #fff;
 	padding-left: 10px;
 	text-transform: uppercase;
+	margin: 0;
 }
 /*
 ===============
@@ -258,10 +240,10 @@ form span > input[type=username], input[type=password]{
 	border: none;
 	width: 100%;
 	height: auto;
-	padding:  14px 14px 10px 40px;
+	padding:  10px 14px 10px 60px;
 	border-radius: 5px;
 	font-size: 17px;
-
+	overflow: hidden;
 }
 form input[type=username]:focus{
 	box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
@@ -276,14 +258,22 @@ form input[type=password]:focus{
 	-webkit-transition: .5s;
 	transition: .5s;
 }
-span > img{
-	width: 20px;
+span  label{
+	width: 15%;
+	height: 100%;
 	margin: 0;
 	position: absolute;
 	top: 0;
 	left: 0;
-	margin-left: 8px;
-	margin-top: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #e8eaea;
+	border-radius: 5px 0 0 5px;
+}
+span label img{
+	box-sizing: border-box;
+	width: 20px;
 }
 table{
 	margin: auto;
@@ -302,8 +292,8 @@ table td:first-child{
 .main{
 	display: block;
 	width: 100%;
-	margin: auto 20px;
-	padding: 0 50px;
+	margin: 100px 0;
+	padding: 0 20px;
 }
 .right{
 	text-align: right;
@@ -413,7 +403,9 @@ Error Modal
 }
 .error-tl h4{
 	font-weight: bold;
-	letter-spacing: 2px;
+	letter-spacing: 1.8px;
+	margin: 0;
+	font-family: monospace, sans-serif;
 }
 .error-tl span{
 	font-size: 30px;
@@ -427,6 +419,7 @@ Error Modal
 }
 .error-tx p{
 	line-height: 1.6;
+	margin: 0;
 }
 
 /*
